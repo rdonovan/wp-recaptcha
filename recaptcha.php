@@ -24,7 +24,10 @@ if (!class_exists('reCAPTCHA')) {
             
             // register the hooks
             $this->register_actions();
-            $this->register_filters();
+            if (!is_admin()) {
+                $this->register_filters();
+            }
+            
         }
         
         function register_actions() {
